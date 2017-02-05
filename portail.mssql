@@ -1,0 +1,314 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.10.18
+-- https://www.phpmyadmin.net
+--
+-- Client: localhost
+-- Généré le: Dim 05 Février 2017 à 10:13
+-- Version du serveur: 5.5.53-MariaDB
+-- Version de PHP: 5.3.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de données: `portail`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `h5charts`
+--
+
+CREATE TABLE IF NOT EXISTS `h5charts` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(60) NOT NULL DEFAULT 'CHART_NAME',
+  `active` enum('OUI','NON') NOT NULL DEFAULT 'NON',
+  `PollerIp` varchar(15) NOT NULL DEFAULT '10.140.4.6',
+  `h5Ip` varchar(15) NOT NULL DEFAULT '10.205.12.64',
+  `h5User` varchar(30) NOT NULL DEFAULT 'administrateur',
+  `h5Pass` varchar(30) NOT NULL DEFAULT 'h5admin',
+  `h5Port` varchar(5) NOT NULL DEFAULT '8080',
+  `DashletType` enum('OBJECT_CHART','METRIC_CHART','TOP_CHART','FILTERED_TOP_CHART') DEFAULT NULL,
+  `ChartType` enum('LINE','STACKEDAREA','PIE') DEFAULT NULL,
+  `Period` enum('LAST_DAY','LAST_WEEK','LAST_MONTH') DEFAULT NULL,
+  `Type` enum('TOTAL','IP','WO','BF','HTTP','VLAN','TCP','UDP') DEFAULT NULL,
+  `DataIdentifier` varchar(30) DEFAULT NULL,
+  `Metric` enum('bandwidth','bandwidth_in','bandwidth_out','bytes','bytes_in','bytes_out','con_fail_rate_in','con_fail_rate_out','con_req_in','con_req_out','con_setup_time_in','con_setup_time_out','delay_in','delay_out','con_est_in','con_est_out','jitter_in','jitter_out','loss_burst_in','loss_burst_out','loss_rate_in','loss_rate_out','mos_in','mos_out','out_of_seq_in','out_of_seq_out','pkts_in','pkts_out','payload_in','payload_out','rst_in','rst_out','ret_time_in','ret_time_out','rtp_dup_in','rtp_dup_out','rtp_loss_in','rtp_loss_out','rtt_in','rtt_out','serv_resp_time_in','serv_resp_time_out','tcp_dup_in','tcp_dup_out','tcp_loss_in','tcp_loss_out','throughput_in','throughput_out','turn_in','turn_out','call_prog_in','call_prog_out','call_est_in','call_est_out','call_req_in','call_req_out','call_end_in','call_end_out','call_can_in','call_can_out','call_rej_in','call_rej_out','tcp_sess_in','tcp_sess_out','udp_sess_in','udp_sess_out','rtp_sess_in','rtp_sess_out') DEFAULT NULL,
+  `Metric1` enum('bandwidth','bandwidth_in','bandwidth_out','bytes','bytes_in','bytes_out','con_fail_rate_in','con_fail_rate_out','con_req_in','con_req_out','con_setup_time_in','con_setup_time_out','delay_in','delay_out','con_est_in','con_est_out','jitter_in','jitter_out','loss_burst_in','loss_burst_out','loss_rate_in','loss_rate_out','mos_in','mos_out','out_of_seq_in','out_of_seq_out','pkts_in','pkts_out','payload_in','payload_out','rst_in','rst_out','ret_time_in','ret_time_out','rtp_dup_in','rtp_dup_out','rtp_loss_in','rtp_loss_out','rtt_in','rtt_out','serv_resp_time_in','serv_resp_time_out','tcp_dup_in','tcp_dup_out','tcp_loss_in','tcp_loss_out','throughput_in','throughput_out','turn_in','turn_out','call_prog_in','call_prog_out','call_est_in','call_est_out','call_req_in','call_req_out','call_end_in','call_end_out','call_can_in','call_can_out','call_rej_in','call_rej_out','tcp_sess_in','tcp_sess_out','udp_sess_in','udp_sess_out','rtp_sess_in','rtp_sess_out') DEFAULT NULL,
+  `Metric2` enum('bandwidth','bandwidth_in','bandwidth_out','bytes','bytes_in','bytes_out','con_fail_rate_in','con_fail_rate_out','con_req_in','con_req_out','con_setup_time_in','con_setup_time_out','delay_in','delay_out','con_est_in','con_est_out','jitter_in','jitter_out','loss_burst_in','loss_burst_out','loss_rate_in','loss_rate_out','mos_in','mos_out','out_of_seq_in','out_of_seq_out','pkts_in','pkts_out','payload_in','payload_out','rst_in','rst_out','ret_time_in','ret_time_out','rtp_dup_in','rtp_dup_out','rtp_loss_in','rtp_loss_out','rtt_in','rtt_out','serv_resp_time_in','serv_resp_time_out','tcp_dup_in','tcp_dup_out','tcp_loss_in','tcp_loss_out','throughput_in','throughput_out','turn_in','turn_out','call_prog_in','call_prog_out','call_est_in','call_est_out','call_req_in','call_req_out','call_end_in','call_end_out','call_can_in','call_can_out','call_rej_in','call_rej_out','tcp_sess_in','tcp_sess_out','udp_sess_in','udp_sess_out','rtp_sess_in','rtp_sess_out') DEFAULT NULL,
+  `Metric3` enum('bandwidth','bandwidth_in','bandwidth_out','bytes','bytes_in','bytes_out','con_fail_rate_in','con_fail_rate_out','con_req_in','con_req_out','con_setup_time_in','con_setup_time_out','delay_in','delay_out','con_est_in','con_est_out','jitter_in','jitter_out','loss_burst_in','loss_burst_out','loss_rate_in','loss_rate_out','mos_in','mos_out','out_of_seq_in','out_of_seq_out','pkts_in','pkts_out','payload_in','payload_out','rst_in','rst_out','ret_time_in','ret_time_out','rtp_dup_in','rtp_dup_out','rtp_loss_in','rtp_loss_out','rtt_in','rtt_out','serv_resp_time_in','serv_resp_time_out','tcp_dup_in','tcp_dup_out','tcp_loss_in','tcp_loss_out','throughput_in','throughput_out','turn_in','turn_out','call_prog_in','call_prog_out','call_est_in','call_est_out','call_req_in','call_req_out','call_end_in','call_end_out','call_can_in','call_can_out','call_rej_in','call_rej_out','tcp_sess_in','tcp_sess_out','udp_sess_in','udp_sess_out','rtp_sess_in','rtp_sess_out') DEFAULT NULL,
+  `Metric4` enum('bandwidth','bandwidth_in','bandwidth_out','bytes','bytes_in','bytes_out','con_fail_rate_in','con_fail_rate_out','con_req_in','con_req_out','con_setup_time_in','con_setup_time_out','delay_in','delay_out','con_est_in','con_est_out','jitter_in','jitter_out','loss_burst_in','loss_burst_out','loss_rate_in','loss_rate_out','mos_in','mos_out','out_of_seq_in','out_of_seq_out','pkts_in','pkts_out','payload_in','payload_out','rst_in','rst_out','ret_time_in','ret_time_out','rtp_dup_in','rtp_dup_out','rtp_loss_in','rtp_loss_out','rtt_in','rtt_out','serv_resp_time_in','serv_resp_time_out','tcp_dup_in','tcp_dup_out','tcp_loss_in','tcp_loss_out','throughput_in','throughput_out','turn_in','turn_out','call_prog_in','call_prog_out','call_est_in','call_est_out','call_req_in','call_req_out','call_end_in','call_end_out','call_can_in','call_can_out','call_rej_in','call_rej_out','tcp_sess_in','tcp_sess_out','udp_sess_in','udp_sess_out','rtp_sess_in','rtp_sess_out') DEFAULT NULL,
+  `Metric5` enum('bandwidth','bandwidth_in','bandwidth_out','bytes','bytes_in','bytes_out','con_fail_rate_in','con_fail_rate_out','con_req_in','con_req_out','con_setup_time_in','con_setup_time_out','delay_in','delay_out','con_est_in','con_est_out','jitter_in','jitter_out','loss_burst_in','loss_burst_out','loss_rate_in','loss_rate_out','mos_in','mos_out','out_of_seq_in','out_of_seq_out','pkts_in','pkts_out','payload_in','payload_out','rst_in','rst_out','ret_time_in','ret_time_out','rtp_dup_in','rtp_dup_out','rtp_loss_in','rtp_loss_out','rtt_in','rtt_out','serv_resp_time_in','serv_resp_time_out','tcp_dup_in','tcp_dup_out','tcp_loss_in','tcp_loss_out','throughput_in','throughput_out','turn_in','turn_out','call_prog_in','call_prog_out','call_est_in','call_est_out','call_req_in','call_req_out','call_end_in','call_end_out','call_can_in','call_can_out','call_rej_in','call_rej_out','tcp_sess_in','tcp_sess_out','udp_sess_in','udp_sess_out','rtp_sess_in','rtp_sess_out') DEFAULT NULL,
+  `Size` int(2) DEFAULT '5',
+  `Protocol` enum('TCP','UDP') DEFAULT NULL,
+  `Port` varchar(5) DEFAULT NULL,
+  `IpOrWo` enum('IP','WO') DEFAULT NULL,
+  `Wo` varchar(30) DEFAULT NULL,
+  `Wo1` varchar(30) DEFAULT NULL,
+  `Wo2` varchar(30) DEFAULT NULL,
+  `Wo3` varchar(30) DEFAULT NULL,
+  `Wo4` varchar(30) DEFAULT NULL,
+  `Wo5` varchar(30) DEFAULT NULL,
+  `filter` varchar(60) DEFAULT NULL,
+  `regex` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+
+--
+-- Contenu de la table `h5charts`
+--
+
+INSERT INTO `h5charts` (`id`, `Name`, `active`, `PollerIp`, `h5Ip`, `h5User`, `h5Pass`, `h5Port`, `DashletType`, `ChartType`, `Period`, `Type`, `DataIdentifier`, `Metric`, `Metric1`, `Metric2`, `Metric3`, `Metric4`, `Metric5`, `Size`, `Protocol`, `Port`, `IpOrWo`, `Wo`, `Wo1`, `Wo2`, `Wo3`, `Wo4`, `Wo5`, `filter`, `regex`) VALUES
+(1, 'Top 10 Consommation Bande Passante Réseau ADMIN', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'FILTERED_TOP_CHART', 'LINE', 'LAST_DAY', 'IP', NULL, 'bandwidth_out', NULL, NULL, NULL, NULL, NULL, 10, NULL, NULL, 'WO', 'AMON ADMIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'Top 10 Consommation Bande Passante Réseau PEDA', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'FILTERED_TOP_CHART', 'LINE', 'LAST_DAY', 'IP', NULL, 'bandwidth_out', NULL, NULL, NULL, NULL, NULL, 10, NULL, NULL, 'WO', 'AMON PEDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'Top 10 Consommation Volume Réseau ADMIN', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'FILTERED_TOP_CHART', 'PIE', 'LAST_DAY', 'IP', NULL, 'bytes_out', NULL, NULL, NULL, NULL, NULL, 10, NULL, NULL, 'WO', 'AMON ADMIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'Top 10 Consommation Volume Réseau PEDA', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'FILTERED_TOP_CHART', 'PIE', 'LAST_DAY', 'IP', NULL, 'bytes_out', NULL, NULL, NULL, NULL, NULL, 10, NULL, NULL, 'WO', 'AMON PEDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'Top 5 Consommation Bande Passante Réseau ADMIN', 'NON', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'FILTERED_TOP_CHART', 'LINE', 'LAST_DAY', 'IP', NULL, 'bandwidth_out', NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, 'WO', 'AMON ADMIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'Top 5 Consommation Volume Réseau ADMIN', 'NON', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'FILTERED_TOP_CHART', 'PIE', 'LAST_DAY', 'IP', NULL, 'bytes_out', NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, 'WO', 'AMON ADMIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'Top 5 Consommation Bande Passante Réseau PEDA', 'NON', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'FILTERED_TOP_CHART', 'LINE', 'LAST_DAY', 'IP', NULL, 'bandwidth_out', NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, 'WO', 'AMON PEDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'Top 5 Consommation Volume Réseau PEDA', 'NON', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'FILTERED_TOP_CHART', 'PIE', 'LAST_DAY', 'IP', NULL, 'bytes_out', NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, 'WO', 'AMON PEDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'Pronote Web - Suivi du temps de réponse', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'PRONOTE-WEB', 'serv_resp_time_in', 'rtt_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 'Pronote Database - Suivi du temps de réponse', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'PRONOTE-DATABASE', 'serv_resp_time_in', 'rtt_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'Pronote Web - Nombre de requêtes et temps de connexion', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'PRONOTE-WEB', 'con_req_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 'Pronote Database - Nombre de requêtes et temps de connexion', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'PRONOTE-DATABASE', 'con_req_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'Amon Proxy - Suivi du temps de réponse', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'AMON-PROXY', 'serv_resp_time_in', 'rtt_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'Amon Proxy - Nombre de requêtes et temps de connexion', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'AMON-PROXY', 'con_req_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'Amon Web - Suivi du temps de réponse', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'AMON-WEB', 'serv_resp_time_in', 'rtt_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 'Amon Web - Nombre de requêtes et temps de connexion', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'AMON-WEB', 'con_req_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'Horus LDAP - Suivi du temps de réponse', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'HORUS-LDAP', 'serv_resp_time_in', 'rtt_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 'Horus LDAP - Nombre de requêtes et temps de connexion', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'HORUS-LDAP', 'con_req_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 'Scribe Web - Suivi du temps de réponse', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'SCRIBE-WEB', 'serv_resp_time_in', 'rtt_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 'Scribe Web - Nombre de requêtes et temps de connexion', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'SCRIBE-WEB', 'con_req_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 'Scribe LDAP - Suivi du temps de réponse', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'SCRIBE-LDAP', 'serv_resp_time_in', 'rtt_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(22, 'Scribe LDAP - Nombre de requêtes et temps de connexion', 'OUI', '10.140.4.6', '10.205.12.64', 'administrateur', 'h5admin', '8080', 'METRIC_CHART', 'LINE', 'LAST_DAY', 'BF', 'SCRIBE-LDAP', 'con_req_in', 'con_setup_time_in', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `h5dashs`
+--
+
+CREATE TABLE IF NOT EXISTS `h5dashs` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `h5dashs`
+--
+
+INSERT INTO `h5dashs` (`id`, `Name`) VALUES
+(1, 'TOP 10'),
+(2, 'AMON'),
+(3, 'PRONOTE'),
+(4, 'HORUS'),
+(5, 'SCRIBE');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `h5dashs_content`
+--
+
+CREATE TABLE IF NOT EXISTS `h5dashs_content` (
+  `id_chart` int(10) NOT NULL,
+  `id_dash` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `h5dashs_content`
+--
+
+INSERT INTO `h5dashs_content` (`id_chart`, `id_dash`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 2),
+(6, 2),
+(7, 2),
+(8, 2),
+(3, 9),
+(9, 3),
+(10, 3),
+(11, 3),
+(12, 3),
+(13, 2),
+(14, 2),
+(15, 2),
+(16, 2),
+(17, 4),
+(18, 4),
+(19, 5),
+(20, 5),
+(21, 5),
+(22, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `iptonetbios`
+--
+
+CREATE TABLE IF NOT EXISTS `iptonetbios` (
+  `ip` varchar(16) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `user` varchar(100) NOT NULL,
+  PRIMARY KEY (`ip`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `iptonetbios`
+--
+
+INSERT INTO `iptonetbios` (`ip`, `name`, `user`) VALUES
+('127.0.0.1', 'localhost', 'australnet');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `nsdashs`
+--
+
+CREATE TABLE IF NOT EXISTS `nsdashs` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `shortName` varchar(20) NOT NULL,
+  `niveau` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Contenu de la table `nsdashs`
+--
+
+INSERT INTO `nsdashs` (`id`, `name`, `shortName`, `niveau`) VALUES
+(11, 'MAIN', 'MAIN', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `nsdashs_content`
+--
+
+CREATE TABLE IF NOT EXISTS `nsdashs_content` (
+  `id_nsdashs_content` int(100) NOT NULL AUTO_INCREMENT,
+  `id_map` int(100) NOT NULL,
+  `id_dash` int(100) NOT NULL,
+  PRIMARY KEY (`id_nsdashs_content`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=65 ;
+
+--
+-- Contenu de la table `nsdashs_content`
+--
+
+INSERT INTO `nsdashs_content` (`id_nsdashs_content`, `id_map`, `id_dash`) VALUES
+(63, 77, 11),
+(64, 75, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `nsmaps`
+--
+
+CREATE TABLE IF NOT EXISTS `nsmaps` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=78 ;
+
+--
+-- Contenu de la table `nsmaps`
+--
+
+INSERT INTO `nsmaps` (`id`, `name`, `description`, `image`) VALUES
+(74, 'MAIN', 'MAIN', ''),
+(75, 'MAIN_NETWORK', 'Network', 'network'),
+(77, 'MAIN_HARDWARE', 'hardware', 'hardware');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `portail_user`
+--
+
+CREATE TABLE IF NOT EXISTS `portail_user` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `login` varchar(30) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `groupe` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+
+--
+-- Contenu de la table `portail_user`
+--
+
+INSERT INTO `portail_user` (`id`, `login`, `password`, `groupe`) VALUES
+(17, 'admin', '304dffe1b3e7bf8a31a32b51b6f6949c3b0d310c', 'MAIN');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_h5_dash`
+--
+
+CREATE TABLE IF NOT EXISTS `user_h5_dash` (
+  `id_user_h5_dash` int(100) NOT NULL AUTO_INCREMENT,
+  `id_user` int(100) NOT NULL,
+  `id_dash` int(100) NOT NULL,
+  PRIMARY KEY (`id_user_h5_dash`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Contenu de la table `user_h5_dash`
+--
+
+INSERT INTO `user_h5_dash` (`id_user_h5_dash`, `id_user`, `id_dash`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 1, 5),
+(6, 2, 1),
+(7, 2, 2),
+(8, 2, 3),
+(9, 2, 4),
+(10, 2, 5),
+(11, 3, 1),
+(12, 3, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_ns_dash`
+--
+
+CREATE TABLE IF NOT EXISTS `user_ns_dash` (
+  `id_user_ns_dash` int(100) NOT NULL AUTO_INCREMENT,
+  `id_user` int(100) NOT NULL,
+  `id_dash` int(100) NOT NULL,
+  PRIMARY KEY (`id_user_ns_dash`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+
+--
+-- Contenu de la table `user_ns_dash`
+--
+
+INSERT INTO `user_ns_dash` (`id_user_ns_dash`, `id_user`, `id_dash`) VALUES
+(15, 17, 11);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
