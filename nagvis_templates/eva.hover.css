@@ -1,0 +1,86 @@
+div.hover {
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 1000;
+    font-family: "Open Sans",Arial,Tahoma,Helvetica,sans-serif;
+}
+div.hover > table {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+}
+div.hover > table td, div.hover > table th {
+    background-color: #555;
+    border: 1px solid #555;
+    color: #ffffff;
+    font-size: 9px;
+    padding: 2px;
+    opacity: 0.97;
+}
+div.hover > table th {
+    background-color: #6A6D6E;
+    text-align: center;
+}
+div.hover > table td.spacer {
+    background-color: #ffffff;
+    height: 3px;
+}
+div.hover > table td.label {
+    background-color: #6A6D6E;
+    text-align: center;
+}
+div.hover > table td.labelACK {
+    background-color: #d7e2e5;
+}
+div.hover > table td.labelPENDING, div.hover > table td.labelUNCHECKED {
+    background-color: #d7e2e5;
+}
+div.hover > table td.labelOK, div.hover > table td.labelUP {
+    background-color: #88B917;
+}
+div.hover > table td.labelWARNING {
+    background-color: #FF9A13;
+}
+div.hover > table td.labelCRITICAL, div.hover > table td.labelDOWN, div.hover > table td.labelUNREACHABLE {
+    background-color: #E00B3D;
+}
+div.hover > table td.labelERROR {
+    background-color: #2AD1D4;
+}
+div.hover > table td.labelUNKNOWN {
+    background-color: #818285;
+}
+div.hover > table label {
+    font-weight: bold;
+}
+div.hover > table td.statePENDING {
+}
+div.hover > table td.stateOK, div.hover > table td.stateUP {
+    background-color: #88B917;
+    color: #ffffff;
+}
+div.hover > table td.stateWARNING {
+    background-color: #FF9A13;
+    color: #000000;
+}
+div.hover > table td.stateCRITICAL, div.hover > table td.stateDOWN, div.hover > table td.stateUNREACHABLE {
+    background-color: #E00B3D;
+    color: #ffffff;
+}
+div.hover > table td.stateERROR {
+    background-color: #2AD1D4;
+    color: #ffffff;
+}
+div.hover > table td.stateUNKNOWN {
+    background-color: #818285;
+    color: #000000;
+}
+iframe{
+border: 0;
+}
+div.hover > table td.graph_bg{
+    background-color: #FFF;
+    opacity: 0.95;
+}
